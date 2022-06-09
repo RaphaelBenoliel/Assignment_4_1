@@ -18,7 +18,8 @@ ostream &operator<<(ostream &os, const Date &other) {
 void Date::setDate(int d, int m, int y) {
     if(y >= 1900 && y <= 2100){
         if (m == 2 ){
-            if((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)){
+            if((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))//check if is a leap year
+            {
                 if(d > 0 && d < 30){
                     this->day = d;
                     this->month = m;
