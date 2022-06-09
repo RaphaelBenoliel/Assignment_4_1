@@ -11,8 +11,10 @@ private:
     int day, month, year;
 public:
     Date();
-    friend ostream& operator<<(ostream &os,const Date& other);
     void setDate(int d, int m, int y);
+    bool operator==(const Date &other)const;
+    friend ostream& operator<<(ostream &os,const Date& other);
+
 };
 
 

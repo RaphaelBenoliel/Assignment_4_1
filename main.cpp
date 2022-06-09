@@ -49,6 +49,45 @@ int main() {
             i--;
         }
     }
+    cout<<"Enter size of Y: ";
+    cin>>sizeY;
+    Date *arrY = new Date[sizeY];
+    cout<<"Enter elements of Y: ";
+    for (int i = 0; i < sizeY; ++i) {
+        cin >> day >> month >> year;
+        try {
+            arrY[i].setDate(day, month, year);
+        }
+        catch (const char *msg) {
+            cout<<msg<<endl;
+            i--;
+        }
+    }
+    Set X(arrX,sizeX);
+    Set Y(arrY,sizeY);
+    Date date;
+    bool run = true,flag;
+    cout<<"Which date should be added to X?: ";
+    while(run) {
+        flag = false;
+        cin>>day>>month>>year;
+        try{
+            date.setDate(day,month,year);
+        }
+        catch(const char *msg) {
+            cout << msg << endl;
+            run = true;
+            flag = true;
+        }
+        if(!flag)
+            run = false;
+    }
+    X += date;
+
+    X.printSet();
+    Y.printSet();
+
+
 
 
     return 0;

@@ -11,7 +11,7 @@ Date::Date() {
 }
 
 ostream &operator<<(ostream &os, const Date &other) {
-    os << other.day << "/" << other.month << "/" << other.year << endl;
+    os << other.day << "/" << other.month << "/" << other.year;
     return os;
 }
 
@@ -61,4 +61,8 @@ void Date::setDate(int d, int m, int y) {
     }
     else
         throw "Incorrect date!Pls try again.";
+}
+
+bool Date::operator==(const Date &other) const {
+    return (day == other.day && month == other.month && year == other.year);
 }
