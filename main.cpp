@@ -118,9 +118,5 @@ int main() {
     cout<<"Difference=";
     DiffD.printSet();
     cout<<"Total size is: "<<X.getStatic()<<endl;
-
-
-
-
     return 0;
 }

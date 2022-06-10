@@ -16,8 +16,9 @@ private:
 public:
     Set();
     Set(T* arr, int size);
-  //  Set(const Set &other);
+  //Set(const Set &other);
     ~Set();
+
     void printSet()const;
     static int getStatic();
     Set &operator+=(const T &val);
@@ -33,7 +34,6 @@ Set<T>::Set()
     this->size = 0;
     this->arr = NULL;
 }
-
 
 template<class T>
 Set<T>::~Set() {
@@ -139,10 +139,10 @@ const Set<T> Set<T>::operator-(const Set &other) const {
         flag = false;
         for (int j = 0; j < other.size; ++j)
         {
-            if(arr[i] == other.arr[i])
+            if(arr[i] == other.arr[j])
                 flag = true;
         }
-        if(!flag || k == newSize) {
+        if(!flag && k < newSize) {
             newArr[k] = arr[i];
             k++;
         }
