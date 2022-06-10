@@ -1,9 +1,12 @@
 #include <iostream>
 #include "Set.h"
 #include"Date.h"
+template<> int Set<float>::totalSize=0;
+template<> int Set<Date>::totalSize=0;
+
 int main() {
     int sizeA,sizeB,sizeX,sizeY,day, month, year;
-    /*float *arrA, *arrB, num;
+    float *arrA, *arrB, num;
     cout<<"Enter size of A: ";
     cin>>sizeA;
     arrA = new float[sizeA];
@@ -17,15 +20,15 @@ int main() {
     for (int i = 0; i < sizeB; ++i)
         cin>>arrB[i];
     Set<float>A(arrA,sizeA);
-    Set B(arrB, sizeB);
+    Set<float>B(arrB, sizeB);
     cout<<"Which number should be added to A?: ";
     cin>>num;
     A += num;
     cout<<"Which number should be removed from B?: ";
     cin>>num;
     B -= num;
-    Set Union = A + B;
-    Set Diff = A - B;
+    Set<float>Union = A + B;
+    Set<float>Diff = A - B;
     cout<<"A=";
     A.printSet();
     cout<<"B=";
@@ -34,7 +37,8 @@ int main() {
     Union.printSet();
     cout<<"Difference=";
     Diff.printSet();
-    */
+    cout<<"Total size is: "<<A.getStatic()<<endl;
+    ////////////////////////////////////////////////////////////////////////////////////
     cout<<"Enter size of X: ";
     cin>>sizeX;
     Date *arrX = new Date[sizeX];
@@ -63,10 +67,13 @@ int main() {
             i--;
         }
     }
-    Set X(arrX,sizeX);
-    Set Y(arrY,sizeY);
+    Set<Date>X(arrX,sizeX);
+    Set<Date>Y(arrY,sizeY);
     Date date;
     bool run = true,flag;
+    for (int i = 0; i < 2; ++i) {
+
+    }
     cout<<"Which date should be added to X?: ";
     while(run) {
         flag = false;
@@ -83,9 +90,34 @@ int main() {
             run = false;
     }
     X += date;
-
+    cout<<"Which date should be removed from Y?: ";
+    run = true;
+    while(run) {
+        flag = false;
+        cin>>day>>month>>year;
+        try{
+            date.setDate(day,month,year);
+        }
+        catch(const char *msg) {
+            cout << msg << endl;
+            run = true;
+            flag = true;
+        }
+        if(!flag)
+            run = false;
+    }
+    Y-=date;
+    Set<Date>UnionD = X + Y;
+    Set<Date>DiffD = X - Y;
+    cout<<"X=";
     X.printSet();
+    cout<<"Y=";
     Y.printSet();
+    cout<<"Union=";
+    UnionD.printSet();
+    cout<<"Difference=";
+    DiffD.printSet();
+    cout<<"Total size is: "<<X.getStatic()<<endl;
 
 
 
