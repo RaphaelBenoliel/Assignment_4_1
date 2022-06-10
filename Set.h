@@ -1,7 +1,6 @@
 //
 // Created by Raphael Benoliel on 01/06/2022.
 //
-
 #ifndef ASSIGNMENT_4_1_SET_H
 #define ASSIGNMENT_4_1_SET_H
 #include<iostream>
@@ -16,7 +15,6 @@ private:
 public:
     Set();
     Set(T* arr, int size);
-  //Set(const Set &other);
     ~Set();
 
     void printSet()const;
@@ -182,22 +180,6 @@ Set<T> &Set<T>::operator=(const Set &other) {
     }
     return *this;
 }
-/*
-template<class T>
-Set<T>::Set(const Set &other) {
-    if(other.size)
-    {
-        this->size = other.size;
-        totalSize +=other.size;
-        this->arr = new T[other.size];
-        for (int i = 0; i < other.size; ++i)
-            this->arr[i] = other.arr[i];
-    }
-    else
-    {
-        this->size = 0;
-        this->arr = nullptr;
-    }
-}*/
+
 
 #endif //ASSIGNMENT_4_1_SET_H
