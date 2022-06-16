@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Set.h"
 #include"Date.h"
-template<> int Set<float>::totalSize=0;
-template<> int Set<Date>::totalSize=0;
+template<>int Set<float>::totalSize=0;
+template<>int Set<Date>::totalSize=0;
 
 int main() {
     int sizeA, sizeB, sizeX, sizeY, day, month, year;
@@ -72,9 +72,6 @@ int main() {
     Set<Date> Y(arrY, sizeY);
     Date date;
     bool run = true, flag;
-    for (int i = 0; i < 2; ++i) {
-
-    }
     cout << "Which date should be added to X?: ";
     while (run) {
         flag = false;
